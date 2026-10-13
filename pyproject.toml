@@ -1,0 +1,12 @@
+[project]
+name = "FOCUS"
+version = "0.1.0"
+dependencies = [
+    "flet",
+    "flet-audio",
+    "mutagen"
+]
+
+[tool.flet]
+app = "main.py"
+assets_dir = "assets"
