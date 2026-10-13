@@ -11,10 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-
       - name: Install Python
         uses: actions/setup-python@v5
         with:
@@ -23,7 +19,7 @@ jobs:
       - name: Install dependencies & Build
         run: |
           pip install flet
-          flet build apk
+          CI=true flet build apk --no-interactive || yes | flet build apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
